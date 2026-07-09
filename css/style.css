@@ -1,0 +1,84 @@
+/* style.css */
+
+/* Reset básico para asegurar consistencia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para el cuerpo de la página, enfocado en el centrado vertical y la estética oscura */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Puedes usar una fuente serif si prefieres */
+    
+    /* Fondo oscuro y profundo de la imagen */
+    background-color: #03111a; 
+    
+    /* Una sutil superposición de degradado para la atmósfera de la cueva */
+    background-image: 
+        radial-gradient(circle at center, rgba(0, 195, 255, 0.05), transparent 70%),
+        url('data:image/svg+xml;base64,...'); /* Opcional: una sutil textura de ruido/polvo */
+    
+    color: #e0faff; /* Texto cian muy claro */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra todo el contenido verticalmente */
+    overflow: hidden; /* Evita barras de desplazamiento si es posible */
+}
+
+/* Contenedor principal que agrupa el contenido */
+.page-container {
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente dentro del contenedor */
+    height: 100%; /* Asegura que el contenedor ocupe todo el alto disponible */
+}
+
+/* Estilo del Header: imagen y título */
+header {
+    margin-bottom: 2rem;
+}
+
+.main-character-img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 8px #00e5ff); /* Brillo cian */
+}
+
+.elegant-title {
+    font-family: 'Crimson Text', serif; /* Si instalas una fuente serif elegante */
+    font-size: 3.5rem;
+    letter-spacing: 0.15em;
+    color: #fff;
+    text-shadow: 0 0 20px #00e5ff; /* Sombra de texto con brillo */
+}
+
+/* Sección del video, centrada */
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.centered-video {
+    width: 100%;
+    max-width: 800px; /* Limita el ancho máximo del video */
+    height: auto;
+    border-radius: 15px; /* Esquinas redondeadas */
+    border: 3px solid #00c3ff; /* Borde cian sutil */
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.7); /* Brillo cian fuerte */
+}
+
+/* Estilos de fuente opcionales para usar 'Crimson Text' (tendrías que añadirla a tu HTML) */
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&display=swap');
+.elegant-title {
+    font-family: 'Crimson Text', serif;
+}
+*/
