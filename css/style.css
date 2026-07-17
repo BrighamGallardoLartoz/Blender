@@ -1,84 +1,246 @@
-/* style.css */
-
-/* Reset básico para asegurar consistencia */
+/* --- ESTILOS GENERALES Y RESPONSIVE --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo para el cuerpo de la página, enfocado en el centrado vertical y la estética oscura */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Puedes usar una fuente serif si prefieres */
-    
-    /* Fondo oscuro y profundo de la imagen */
-    background-color: #03111a; 
-    
-    /* Una sutil superposición de degradado para la atmósfera de la cueva */
-    background-image: 
-        radial-gradient(circle at center, rgba(0, 195, 255, 0.05), transparent 70%),
-        url('data:image/svg+xml;base64,...'); /* Opcional: una sutil textura de ruido/polvo */
-    
-    color: #e0faff; /* Texto cian muy claro */
-    height: 100vh; /* Ocupa todo el alto de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra todo el contenido verticalmente */
-    overflow: hidden; /* Evita barras de desplazamiento si es posible */
-}
-
-/* Contenedor principal que agrupa el contenido */
-.page-container {
-    width: 90%;
-    max-width: 900px;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra verticalmente dentro del contenedor */
-    height: 100%; /* Asegura que el contenedor ocupe todo el alto disponible */
-}
-
-/* Estilo del Header: imagen y título */
-header {
-    margin-bottom: 2rem;
-}
-
-.main-character-img {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 0 8px #00e5ff); /* Brillo cian */
-}
-
-.elegant-title {
-    font-family: 'Crimson Text', serif; /* Si instalas una fuente serif elegante */
-    font-size: 3.5rem;
-    letter-spacing: 0.15em;
-    color: #fff;
-    text-shadow: 0 0 20px #00e5ff; /* Sombra de texto con brillo */
-}
-
-/* Sección del video, centrada */
-.video-section {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    /* Suaviza la transición al cambiar de página si el navegador lo soporta */
+    transition: background 0.5s ease; 
 }
 
-.centered-video {
+/* Contenedor de las imágenes en el menú */
+.menu-proyectos {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap; /* Permite que los elementos bajen a la siguiente línea en celulares */
+    justify-content: center;
     width: 100%;
-    max-width: 800px; /* Limita el ancho máximo del video */
-    height: auto;
-    border-radius: 15px; /* Esquinas redondeadas */
-    border: 3px solid #00c3ff; /* Borde cian sutil */
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.7); /* Brillo cian fuerte */
+    max-width: 900px;
 }
 
-/* Estilos de fuente opcionales para usar 'Crimson Text' (tendrías que añadirla a tu HTML) */
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,400;1,700&display=swap');
-.elegant-title {
-    font-family: 'Crimson Text', serif;
+/* Configuración base de las imágenes/botones */
+.img-boton {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Transición suave para el efecto hover (escalado y sombra) */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    cursor: pointer;
 }
-*/
+
+/* Efectos al pasar el cursor (Hover) */
+.hollow-hover:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 170, 255, 0.5); /* Resplandor azul */
+}
+
+.parque-hover:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.4); /* Resplandor verde pastel */
+}
+
+/* --- TEMA BLENDER (Página Principal) --- */
+.tema-blender {
+    /* Degradado sutil gris/blanco */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Poppins', sans-serif;
+}
+.tema-blender h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2c3e50; /* Azul muy oscuro */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+.tema-blender h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e67e22; /* Naranja casual */
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+/* --- TEMA HOLLOW KNIGHT --- */
+.tema-hollow {
+    /* Degradado oscuro tipo cueva */
+    background: radial-gradient(circle at center, #0a1128 0%, #010308 100%);
+    font-family: 'Cinzel', serif;
+    color: #e0fbfc;
+}
+.tema-hollow h1 {
+    font-size: 3.5rem;
+    color: #8ecae6; /* Celeste pálido */
+    text-shadow: 0 0 15px rgba(142, 202, 230, 0.6);
+    margin-bottom: 30px;
+}
+.tema-hollow video {
+    border: 3px solid #219ebc;
+    box-shadow: 0 0 30px rgba(33, 158, 188, 0.3);
+}
+
+/* --- TEMA PARQUE --- */
+.tema-parque {
+    /* Degradado tonos pastel cálidos */
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    font-family: 'Nunito', sans-serif;
+    color: #5d4037;
+}
+.tema-parque h1 {
+    font-size: 3rem;
+    color: #795548;
+    margin-bottom: 30px;
+}
+.tema-parque video {
+    border: 4px solid #b2dfdb; /* Verde agua pastel */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* --- CONFIGURACIÓN DE VIDEOS Y BOTONES --- */
+.contenedor-video {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+video {
+    width: 100%;
+    max-width: 900px; /* Tamaño máximo en PC */
+    border-radius: 12px;
+    background-color: #000; /* Fondo negro por si el video tarda en cargar */
+}
+
+/* Estilo general del botón de volver */
+.btn-volver {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+/* Colores específicos para los botones según la página */
+.btn-hollow {
+    color: #8ecae6;
+    border: 2px solid #8ecae6;
+    background: transparent;
+}
+.btn-hollow:hover {
+    background: #8ecae6;
+    color: #010308;
+    box-shadow: 0 0 15px #8ecae6;
+}
+.btn-parque {
+    color: #795548;
+    border: 2px solid #795548;
+    background: transparent;
+}
+.btn-parque:hover {
+    background: #795548;
+    color: #fff;
+}
+
+/* --- RESPONSIVE DESIGN (Para Celulares y Tablets) --- */
+@media (max-width: 768px) {
+    .tema-blender h1 {
+        font-size: 2.2rem; /* Título más pequeño en celular */
+    }
+    .tema-blender h2 {
+        font-size: 1.2rem;
+    }
+    .img-boton {
+        width: 100%; /* La imagen ocupa el ancho de la pantalla */
+        max-width: 320px; /* Pero no se hace excesivamente grande */
+        height: auto;
+        aspect-ratio: 2 / 3; /* Mantiene la proporción vertical */
+    }
+    .tema-hollow h1, .tema-parque h1 {
+        font-size: 2rem;
+    }
+}
+/* --- TEMA PRINCIPAL (Fondo Warcraft) --- */
+.tema-blender {
+    /* Aquí va el fondo de pantalla a pantalla completa */
+    background-image: url('../img/arthas.jpg'); 
+    background-size: cover; /* Hace que ocupe toda la pantalla */
+    background-position: center; /* Lo centra */
+    background-attachment: fixed; /* Evita que el fondo se mueva al scrollear */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Le damos sombra oscura al texto para que resalte sobre el fondo de Warcraft */
+.tema-blender h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff; 
+    text-align: center;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9); /* Sombra fuerte */
+    margin-bottom: 5px;
+}
+.tema-blender h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ff9d00; /* Naranja más intenso estilo Warcraft */
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* --- EFECTO DEL ARMA AL COSTADO (Flecha indicadora) --- */
+.enlace-proyecto {
+    position: relative;
+    display: inline-block;
+}
+
+/* Esta es el arma oculta por defecto al lado izquierdo */
+.enlace-proyecto::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -60px; /* Distancia inicial hacia la izquierda */
+    transform: translateY(-50%);
+    width: 150px; /* Tamaño del arma */
+    height: 150px;
+    background-image: url('../img/frostmourne.webp'); /* Tu imagen del arma, hacha o espada */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0; /* Invisible al inicio */
+    transition: all 0.3s ease; /* Animación suave */
+    pointer-events: none; /* Para que no interfiera con el click */
+}
+
+/* Cuando pones el mouse encima, el arma aparece y se mueve un poco hacia la imagen */
+.enlace-proyecto:hover::before {
+    opacity: 1; /* Se vuelve visible */
+    left: -130px; /* Se acerca a la imagen dando el efecto de señalar */
+}
+
+/* --- CONFIGURACIÓN BASE DE LAS IMÁGENES/BOTONES --- */
+.img-boton {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    
+    /* AQUÍ PUEDES CAMBIAR EL CURSOR POR UNA ESPADITA PEQUEÑA */
+    /* cursor: url('cursor_arma.png'), pointer; */ 
+    cursor: pointer;
+}
